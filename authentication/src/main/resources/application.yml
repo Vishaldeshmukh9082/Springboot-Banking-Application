@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: authentication
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/BOBbankDB
+    username: postgres
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    user:
+      name: admin
+      password: admin
+
+server:
+  port: 8081
