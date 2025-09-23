@@ -1,20 +1,32 @@
+
+#spring application name 
 spring:
   application:
     name: authentication
 
+#database configuration
   datasource:
     url: jdbc:postgresql://localhost:5432/BOBbankDB
     username: postgres
     password: root
 
+#hibernate configuration
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  security:
-    user:
-      name: admin
-      password: admin
 
+#Spring Security Configuration
+#   security:
+#     user:
+#       name: admin
+#       password: admin
+
+#exclude spring security from application
+  # autoconfigure:
+  #   exclude:
+  #   - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+#port 
 server:
   port: 8081
