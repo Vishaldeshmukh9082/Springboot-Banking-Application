@@ -10,19 +10,12 @@ spring:
       server:
         webmvc:
           routes:
-          - id: AUTHENTICATION
-            uri: lb://AUTHENTICATION
+          - id:  auth-service
+            uri: lb://auth-service
             predicates:
-            - Path=/user/**
-          - id: AUTH_SERVICE_LOGIN
-            uri: lb://AUTHENTICATION
-            predicates:
-            - Path=/login
-
-          - id: AUTH_SERVICE_LOGOUT
-            uri: lb://AUTHENTICATION
-            predicates:
-            - Path=/logout
+            - Path=/auth/**
+            # filters:
+            # - StripPrefix=1    # it will remove auth before redirecting 
 eureka:
   client:
     fetch-registry: true

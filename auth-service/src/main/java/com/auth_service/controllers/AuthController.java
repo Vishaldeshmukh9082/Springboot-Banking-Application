@@ -34,4 +34,10 @@ public class AuthController {
         return ResponseEntity.ok(authServiceImpl.login(email, password));
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        return ResponseEntity.ok("Logout successful. Please remove token on client side.");
+    }
+
+
 }
