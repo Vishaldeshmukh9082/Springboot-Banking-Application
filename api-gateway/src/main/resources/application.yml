@@ -1,0 +1,32 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+          - id: AUTHENTICATION
+            uri: lb://AUTHENTICATION
+            predicates:
+            - Path=/user/**
+          - id: AUTH_SERVICE_LOGIN
+            uri: lb://AUTHENTICATION
+            predicates:
+            - Path=/login
+
+          - id: AUTH_SERVICE_LOGOUT
+            uri: lb://AUTHENTICATION
+            predicates:
+            - Path=/logout
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    ip-address: true
+
